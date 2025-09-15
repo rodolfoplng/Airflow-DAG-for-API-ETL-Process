@@ -46,10 +46,10 @@ cp .env.example .env
 ```
   
 Edit .env:  
-AIRFLOW_UID=50000
-AVIATIONSTACK_API_KEY=your_real_api_key
+AIRFLOW_UID=50000  
+AVIATIONSTACK_API_KEY=your_real_api_key  
 TZ=America/Sao_Paulo  
-    
+  
 ### 3. Start Airflow  
   
 Initialize the metadata database and bring up services:
@@ -58,12 +58,12 @@ docker compose up airflow-init
 docker compose up -d --force-recreate
 ```  
   
-The Airflow UI will be available at:
+The Airflow UI will be available at:  
 http://localhost:8080 (default: user admin, password admin)  
 
 ### 4. Install Python dependencies inside containers  
   
-If not already baked into the image, install pandas and requests:  
+If not already baked into the image, install pandas and requests:    
 ```bash
 docker exec -it airflow-airflow-webserver-1 bash -lc "pip install --no-cache-dir pandas==2.2.2 requests==2.32.3"
 docker exec -it airflow-airflow-scheduler-1 bash -lc "pip install --no-cache-dir pandas==2.2.2 requests==2.32.3"
@@ -71,33 +71,32 @@ docker exec -it airflow-airflow-scheduler-1 bash -lc "pip install --no-cache-dir
 
 ### 5. Verify if DAG is loaded  
   
-In the Airflow UI, the DAG aviationstack_departures_gig should be listed.
+In the Airflow UI, the DAG aviationstack_departures_gig should be listed.  
 Unpause it and Trigger DAG manually to execute.  
 
 
 ## API Key Configuration  
 
-The DAG reads the Aviationstack API key from:
-
+The DAG reads the Aviationstack API key from:  
 Environment variable AVIATIONSTACK_API_KEY (via .env)  
     
 
 ## Output Location  
   
-Inside the container:
+Inside the container:  
 /opt/airflow/data/Departures.csv  
   
-On the host (via volume mapping in docker-compose.yml):
+On the host (via volume mapping in docker-compose.yml):  
 ./data/Departures.csv  
   
 
 ## Troubleshooting  
 
-DAG not visible → check UI (Browse → DAG Import Errors) or container logs.
+DAG not visible → check UI (Browse → DAG Import Errors) or container logs.  
 
-Missing pandas/requests → run the install commands from step 4.
+Missing pandas/requests → run the install commands from step 4.  
 
-API key error → ensure .env is loaded or add as Airflow Variable.
+API key error → ensure .env is loaded or add as Airflow Variable.  
 
 CSV not visible on host → confirm ./data:/opt/airflow/data mapping in docker-compose.yml.  
   
