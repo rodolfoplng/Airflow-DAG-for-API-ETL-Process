@@ -69,25 +69,27 @@ docker exec -it airflow-airflow-scheduler-1 bash -lc "pip install --no-cache-dir
 ### 5. Verify if DAG is loaded  
   
 In the Airflow UI, the DAG aviationstack_departures_gig should be listed.
-Unpause it and Trigger DAG manually to execute.
+Unpause it and Trigger DAG manually to execute.  
 
-## API Key Configuration
+---
+
+## API Key Configuration  
 
 The DAG reads the Aviationstack API key from:
 
-Environment variable AVIATIONSTACK_API_KEY (via .env), or
+Environment variable AVIATIONSTACK_API_KEY (via .env)  
+    
 
-Airflow Variable AVIATIONSTACK_API_KEY (set in Admin → Variables).
-
-## Output Location
-
+## Output Location  
+  
 Inside the container:
-/opt/airflow/data/Departures.csv
-
+/opt/airflow/data/Departures.csv  
+  
 On the host (via volume mapping in docker-compose.yml):
-./data/Departures.csv
+./data/Departures.csv  
+  
 
-## Troubleshooting
+## Troubleshooting  
 
 DAG not visible → check UI (Browse → DAG Import Errors) or container logs.
 
@@ -95,12 +97,13 @@ Missing pandas/requests → run the install commands from step 4.
 
 API key error → ensure .env is loaded or add as Airflow Variable.
 
-CSV not visible on host → confirm ./data:/opt/airflow/data mapping in docker-compose.yml.
-
-
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.  
+CSV not visible on host → confirm ./data:/opt/airflow/data mapping in docker-compose.yml.  
   
+---
+
+## License  
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.  
+    
 For more projects, check out my [Portfolio Repository](https://github.com/rodolfoplng/Portfolio).
 
 
