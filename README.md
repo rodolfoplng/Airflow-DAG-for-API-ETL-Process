@@ -107,7 +107,11 @@ CSV not visible on host → confirm ./data:/opt/airflow/data mapping in docker-c
 ## License  
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.  
   
-For more projects, check out my [Portfolio Repository](https://github.com/rodolfoplng/Portfolio).
+For a ETL pipeline using Cron Job, take a look at [Aviationstack API ETL with Daily Cron Job](https://github.com/rodolfoplng/Portfolio/blob/main/Aviationstack%20ETL%20Cron.md)  
+  
+Notebook with the API extraction and analysis: [API Request and Extraction from Aviationstack](https://github.com/rodolfoplng/Portfolio/blob/main/API%20Request%20and%20Extraction%20Aviationstack.ipynb)  
+  
+For more projects, check out my [Portfolio Repository](https://github.com/rodolfoplng/Portfolio)  
 
 
 
