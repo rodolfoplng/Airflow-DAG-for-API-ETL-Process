@@ -20,41 +20,44 @@ airflow-aviationstack/
 ├─ docker-compose.yml # Docker services definition  
 ├─ requirements.txt # Python dependencies (pandas, requests)  
 └─ .env # Environment variables (API key, etc.)  
-  
----  
+    
   
 ## Prerequisites  
   
 - Docker + Docker Compose installed
 - A valid **Aviationstack API Key** (free subscription available but limited to 100 results)
   
----  
+  
   
 ## Setup Instructions  
 
 ### 1. Clone the repository  
+  
 ```bash
 git clone https://github.com/your-username/Airflow-DAG-with-Docker-for-Aviationstack-API-ETL-Process.git
 cd Airflow-DAG-with-Docker-for-Aviationstack-API-ETL-Process
-```  
-### 2. Create the .env file  
+```
+  
+### 2. Create the .env file 
+  
 Copy .env.example to .env and configure:  
 ```bash
 cp .env.example .env
 ```
-
+  
 Edit .env:  
 AIRFLOW_UID=50000
 AVIATIONSTACK_API_KEY=your_real_api_key
 TZ=America/Sao_Paulo  
-  
+    
 ### 3. Start Airflow  
+  
 Initialize the metadata database and bring up services:
 ```bash 
 docker compose up airflow-init
 docker compose up -d --force-recreate
 ```  
-
+  
 The Airflow UI will be available at:
 http://localhost:8080 (default: user admin, password admin)  
 
@@ -71,7 +74,6 @@ docker exec -it airflow-airflow-scheduler-1 bash -lc "pip install --no-cache-dir
 In the Airflow UI, the DAG aviationstack_departures_gig should be listed.
 Unpause it and Trigger DAG manually to execute.  
 
----
 
 ## API Key Configuration  
 
@@ -103,7 +105,7 @@ CSV not visible on host → confirm ./data:/opt/airflow/data mapping in docker-c
 
 ## License  
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.  
-    
+  
 For more projects, check out my [Portfolio Repository](https://github.com/rodolfoplng/Portfolio).
 
 
