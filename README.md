@@ -45,7 +45,7 @@ Copy .env.example to .env and configure:
 cp .env.example .env
 ```
   
-### Edit .env: 
+Edit .env: 
   
 AIRFLOW_UID=50000  
 AVIATIONSTACK_API_KEY=your_real_api_key  
@@ -53,7 +53,7 @@ TZ=America/Sao_Paulo
   
 ### 3. Start Airflow  
   
-#### Initialize the metadata database and bring up services:
+Initialize the metadata database and bring up services:
 ```bash 
 docker compose up airflow-init
 docker compose up -d --force-recreate
