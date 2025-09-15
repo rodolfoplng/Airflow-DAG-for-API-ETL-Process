@@ -45,7 +45,8 @@ Copy .env.example to .env and configure:
 cp .env.example .env
 ```
   
-Edit .env:  
+Edit .env: 
+  
 AIRFLOW_UID=50000  
 AVIATIONSTACK_API_KEY=your_real_api_key  
 TZ=America/Sao_Paulo  
@@ -93,13 +94,14 @@ On the host (via volume mapping in docker-compose.yml):
 ## Troubleshooting  
 
 DAG not visible → check UI (Browse → DAG Import Errors) or container logs.  
-
-Missing pandas/requests → run the install commands from step 4.  
-
-API key error → ensure .env is loaded or add as Airflow Variable.  
-
-CSV not visible on host → confirm ./data:/opt/airflow/data mapping in docker-compose.yml.  
   
+Missing pandas/requests → run the install commands from step 4.  
+  
+API key error → ensure .env is loaded or add as Airflow Variable.  
+  
+CSV not visible on host → confirm ./data:/opt/airflow/data mapping in docker-compose.yml.  
+
+    
 ---
 
 ## License  
